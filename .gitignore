@@ -1,2 +1,5 @@
 ! README.md
 .gitignore
+__pycache__
+.idea
+creds.py
