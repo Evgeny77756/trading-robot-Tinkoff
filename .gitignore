@@ -2,5 +2,4 @@
 .gitignore
 __pycache__/
 .idea
-creds.py
 .env
