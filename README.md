@@ -28,24 +28,24 @@ tok_test_all_accept = 'YOUR TOKEN'
 ###################################################################################
 # Active.py
 
-Необходимые библиотеки:
-
-    tinkoff-investments
-
-
-Описание: 
-В этом модуле находится class Active.
-В этом классе находится вся необходимая информация о рабочем инструменте.
-
-########### ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ################
-
-TICKER - список тикеров инструментов, с которыми мы планируем работать
-INTERVAL - диапазон для отслеживания инструментов (интервал графика)
-
-########### ФУНКЦИИ МОДУЛЯ ################
-def convert_Quontation(quotation) - функция для перевода формата Quontation во float
-
-def convert_float_in_Quotation(value) - перевод float в Quontation
+    Необходимые библиотеки:
+    
+        tinkoff-investments
+    
+    
+    Описание: 
+    В этом модуле находится class Active.
+    В этом классе находится вся необходимая информация о рабочем инструменте.
+    
+    ########### ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ################
+    
+    TICKER - список тикеров инструментов, с которыми мы планируем работать
+    INTERVAL - диапазон для отслеживания инструментов (интервал графика)
+    
+    ########### ФУНКЦИИ МОДУЛЯ ################
+    def convert_Quontation(quotation) - функция для перевода формата Quontation во float
+    
+    def convert_float_in_Quotation(value) - перевод float в Quontation
 
 # class Active
 
@@ -86,3 +86,63 @@ def convert_float_in_Quotation(value) - перевод float в Quontation
         def get_price_step(self)
             Получаем шаг цены инструмента
             Получаемый тип Quontation
+
+####################################################################################
+# DataBase.py
+
+    Модуль содержит классы и данные для работы с БД
+
+    - Устанавливаем библиотеку mysql-connector-python
+        1. Подключение к БД MySQL
+        2. Выполнение запроса на создание БД MySQL
+
+    - Подключаем библиотеки 
+        import mysql.connector
+
+# class TableDB - класс для создания таблицы БД
+
+    хранящиеся данные в классе: 
+
+        self.db_name            - название БД в которой мы создаём таблицу
+        self.table_name         - название создаваемой таблицы
+        self.columns            - название колонок и через пробел их тип
+        self.lst_name_columns   - список названий колонок
+        self.lst_type_columns   - список названий типов колонок
+        self.cursor             - курсор БД        
+
+    принимает при инициализации:
+        
+        db_name             - название БД
+        table_name          - название таблицы
+        columns = None      - колонки таблицы, которые будут записаны
+                            в таблицу при её создании. 
+                            По умолчанию в ней не будет колонок
+
+    Методы класса
+
+        def create_table(self) 
+            Создание таблицы в БД
+        
+        def insert_data(self, new_column, value, nameUsers = None)
+            Добавляем в таблицу запись
+
+        def add_column(self, new_column, value, amount_for_varchar = '(255)')
+            Добавление колонки в таблицу
+
+        def select_column(self, column, condition_column = 'id', condition_value = 1)
+            Выбор колонки из таблицы с заданным 'id'
+
+        def update_column(self, column_name, new_value, condition_column = 'id', condition_value = 1)
+            Изменение записи в БД
+
+        def distinct_unique(self, column)
+            Убираем дубликаты в таблице
+
+        def get_column(self) 
+            Получаем данные о колонках таблицы
+
+        def get_name_columns(self)
+            Получаем названия колонок
+
+        def get_type_columns(self)
+            Получаем типы колонок
