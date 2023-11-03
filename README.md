@@ -189,5 +189,14 @@ tok_test_all_accept = 'YOUR TOKEN'
         def set_account_id(self, account_id)
             Меняет рабочий аккаунт
     
-            account_id - новый аккаунт        
+            account_id - новый аккаунт
 
+
+
+# SellActive.py
+
+    Модуль содержит класс SellActive(), который создаёт различные заявки для продажи актива
+
+    Подключаем модуль Active.py
+
+# class SellActive(Active) - аналогично class BuyActive(self), описанного выше
