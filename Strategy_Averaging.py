@@ -44,7 +44,7 @@ staticData = TableDB(db.connection, f'{TABLE_FOR_LOTS}')                # сое
 
 
 # функция для получения и заполнения данными таблицы с динамическими ценами для покупок и продаж актива в БД
-def update_buy_stocks(obj, obj_active):
+def update_buy_stocks(obj_active):
 
     # вычисляем максимальную цену текущего дня
     with Client(creds.tok_test_all_accept) as client:
